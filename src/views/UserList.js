@@ -3,9 +3,11 @@ import React from 'react';
 import { FlatList, View, Alert } from 'react-native';
 import { Avatar, Button, ListItem, Icon } from 'react-native-elements';
 
-import users from '../data/users';
+import UsersContext from '../context/UsersContext';
 
 export default props => {
+
+  const { state } = React.useContext(UsersContext)
 
   function confirmuserDeletion(user) {
     Alert.alert('Excluir usuário', 'Deseja excluir o usuário', [
@@ -58,7 +60,7 @@ export default props => {
     <View>
       <FlatList
         keyExtractor={user => user.id.toString()}
-        data={users}
+        data={state.users}
         renderItem={getUserItem}
       />
     </View>
