@@ -5,8 +5,6 @@ import { Text, View, TextInput, Button, StyleSheet } from 'react-native';
 export default ({ route, navigation }) => {
   const [user, setUser] = React.useState(route.params ? route.params : {});
 
-  console.log({ user })
-
   return (
     <View style={style.form}>
       <Text style={style.label}>Nome</Text>
