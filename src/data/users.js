@@ -22,5 +22,11 @@ export default [
     name: 'Cynara Cely',
     email: 'cynara.dutra@gmail.com',
     avatarUrl: 'https://cdn.pixabay.com/photo/2016/09/01/08/25/smiley-1635456_640.png'
+  },
+  {
+    id: 5,
+    name: 'Arthur Sousa',
+    email: 'arthur.sousa@gmail.com',
+    avatarUrl: 'https://cdn.pixabay.com/photo/2016/09/01/08/25/smiley-1635456_640.png'
   }
 ]
