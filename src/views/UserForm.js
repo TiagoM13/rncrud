@@ -1,9 +1,11 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { Text, View, TextInput, Button, StyleSheet } from 'react-native';
+import UsersContext from '../context/UsersContext';
 
 export default ({ route, navigation }) => {
   const [user, setUser] = React.useState(route.params ? route.params : {});
+  const { dispatch } = React.useContext(UsersContext)
 
   return (
     <View style={style.form}>
@@ -13,6 +15,7 @@ export default ({ route, navigation }) => {
         placeholder="Informe o Nome"
         value={user.name}
         style={style.input}
+        placeholderTextColor='#000'
       />
 
       <Text style={style.label}>E-mail</Text>
@@ -21,6 +24,7 @@ export default ({ route, navigation }) => {
         placeholder="Informe o E-mail"
         value={user.email}
         style={style.input}
+        placeholderTextColor='#000'
       />
 
       <Text style={style.label}>URL do Avatar</Text>
@@ -29,11 +33,18 @@ export default ({ route, navigation }) => {
         placeholder="Informe a URl do Avatar"
         value={user.avatarUrl}
         style={style.input}
+        placeholderTextColor='#000'
       />
 
       <Button
         title='Salvar'
-        onPress={() => navigation.goBack()}
+        onPress={() => {
+          dispatch({
+            type: user.id ? 'updateUser' : 'createUser',
+            payload: user
+          })
+          navigation.goBack()
+        }}
       />
     </View>
   )
